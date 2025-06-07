@@ -1,4 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ffffff;
   display: flex;
   flex-direction: row;
@@ -7,6 +15,10 @@
 }
 
 .login .div {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
   background-color: #ffffff;
   width: 1440px;
   height: 792px;

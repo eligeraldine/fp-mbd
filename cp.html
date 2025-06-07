@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyITS - Create New Project</title>
+    <link rel="stylesheet" href="cp.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <a href="dashboar.html"><img src="img/myitscolab.png" alt=""></a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="#" class="menu-item" data-tooltip="Dashboard">
+                        <span class="icon">🏠</span>
+                        <span class="menu-text">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item" data-tooltip="Create project">
+                        <span class="icon">📄</span>
+                        <span class="menu-text">Create Project/span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item" data-tooltip="My project">
+                        <span class="icon">🎓</span>
+                        <span class="menu-text">My Project</span>
+                    </a>
+                </li>
+                <li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content" id="mainContent">
+            <h1 class="page-title">Create new project</h1>
+            
+            <div class="form-container">
+                <form id="projectForm">
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="step-number">1</span>
+                            Judul Proyek
+                        </label>
+                        <input type="text" class="form-input" placeholder="Judul" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="step-number">2</span>
+                            Deskripsi Proyek
+                        </label>
+                        <textarea class="form-input form-textarea" placeholder="Deskripsi" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="step-number">3</span>
+                            Bidang Proyek
+                        </label>
+                        <select class="form-input form-select" required>
+                            <option value="">Pilih Bidang</option>
+                            <option value="teknologi">Teknologi Informasi</option>
+                            <option value="bisnis">Bisnis & Manajemen</option>
+                            <option value="pendidikan">Pendidikan</option>
+                            <option value="kesehatan">Kesehatan</option>
+                            <option value="lingkungan">Lingkungan</option>
+                            <option value="sosial">Sosial & Kemasyarakatan</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Add Project</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const mainContent = document.getElementById('mainContent');
+        let sidebarOpen = window.innerWidth > 768;
+
+        function toggleSidebar() {
+            sidebarOpen = !sidebarOpen;
+            
+            if (window.innerWidth <= 768) {
+                // Mobile behavior
+                if (sidebarOpen) {
+                    sidebar.classList.add('active');
+                    sidebarOverlay.classList.add('active');
+                    hamburger.classList.add('active');
+                } else {
+                    sidebar.classList.remove('active');
+                    sidebarOverlay.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            } else {
+                // Desktop behavior - collapse to icon-only instead of hiding
+                if (sidebarOpen) {
+                    sidebar.classList.remove('collapsed');
+                    mainContent.classList.remove('collapsed');
+                    hamburger.classList.remove('active');
+                } else {
+                    sidebar.classList.add('collapsed');
+                    mainContent.classList.add('collapsed');
+                    hamburger.classList.add('active');
+                }
+            }
+        }
+
+        // Initialize sidebar state
+        function initializeSidebar() {
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('active', 'collapsed');
+                sidebarOverlay.classList.remove('active');
+                hamburger.classList.remove('active');
+                mainContent.classList.remove('collapsed');
+                sidebarOpen = false;
+            } else {
+                sidebar.classList.remove('hidden', 'active');
+                sidebarOverlay.classList.remove('active');
+                hamburger.classList.remove('active');
+                mainContent.classList.remove('collapsed');
+                sidebarOpen = true;
+            }
+        }
+
+        // Event listeners
+        hamburger.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            initializeSidebar();
+        });
+
+        // Initialize on load
+        window.addEventListener('load', function() {
+            initializeSidebar();
+        });
+
+        // Form submission handler
+        document.getElementById('projectForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const projectData = {
+                title: this.querySelector('input[type="text"]').value,
+                description: this.querySelector('textarea').value,
+                field: this.querySelector('select').value
+            };
+            
+            // Simple validation
+            if (!projectData.title || !projectData.description || !projectData.field) {
+                alert('Mohon lengkapi semua field yang diperlukan!');
+                return;
+            }
+            
+            // Simulate project creation
+            alert('Proyek berhasil dibuat!\n\nJudul: ' + projectData.title + '\nBidang: ' + projectData.field);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Menu item click handler
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all items
+                document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

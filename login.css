@@ -1,0 +1,257 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.login {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.login .div {
+  background-color: #ffffff;
+  width: 1440px;
+  height: 792px;
+  position: relative;
+}
+
+.login .logo {
+  position: absolute;
+  width: 227px;
+  height: 128px;
+  top: 83px;
+  left: 1118px;
+  object-fit: cover;
+}
+
+.login .overlap-group {
+  position: absolute;
+  width: 1160px;
+  height: 825px;
+  top: 0;
+  left: -150px;
+  background-image: url(img/bekerja-tak-harus-di-kantor.jpg);
+  background-size: 100% 100%;
+}
+
+.login .rectangle {
+  height: 825px;
+  background-color: #00000066;
+}
+
+.login .text-wrapper {
+  position: absolute;
+  top: 249px;
+  left: 1063px;
+  font-family: "Instrument Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .text-wrapper-2 {
+  position: absolute;
+  top: 439px;
+  left: 1101px;
+  font-family: "Instrument Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .text-wrapper-3 {
+  position: absolute;
+  top: 572px;
+  left: 1203px;
+  font-family: "Instrument Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .text-wrapper-4 {
+  position: absolute;
+  top: 439px;
+  left: 1294px;
+  font-family: "Instrument Sans-Regular", Helvetica;
+  font-weight: 400;
+  color: #2397d5;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .username {
+  position: absolute;
+  width: 338px;
+  height: 44px;
+  top: 295px;
+  left: 1063px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #9b9b9ba6;
+}
+
+.login .log-in {
+  position: absolute;
+  width: 338px;
+  height: 44px;
+  top: 491px;
+  left: 1063px;
+  background-color: #0b188d;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #9b9b9ba6;
+}
+
+.login .login-button {
+  position: absolute;
+  top: 11px;
+  left: 146px;
+  font-family: "Instrument Sans-Medium", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .checklist {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 435px;
+  left: 1063px;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #9b9b9ba6;
+}
+
+.login .password {
+  position: absolute;
+  width: 338px;
+  height: 44px;
+  top: 370px;
+  left: 1063px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #9b9b9ba6;
+}
+
+.login input.username,
+.login input.password {
+  position: absolute;
+  width: 338px;
+  height: 44px;
+  padding: 0 15px;
+  font-size: 16px;
+  font-family: "Instrument Sans-Regular", Helvetica;
+  color: #000000;
+  top: 295px;
+  left: 1063px;
+  border-radius: 3px;
+  border: 1px solid #9b9b9ba6;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.login input.password {
+  top: 370px;
+}
+
+
+.login .facebook:hover{
+  color: #0b188d;
+  background-color: #e3e1e1;
+}
+
+.login .facebook {
+  position: absolute;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  top: 609px;
+  left: 1157px;
+  color: white;
+  background-color: #0b188d;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.login .twitter:hover{
+  color: #2397D6;
+  background-color: #e3e1e1;
+}
+
+.login .twitter {
+  position: absolute;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  top: 609px;
+  left: 1197px;
+  color: white;
+  background-color: #2397D6;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.login .instagram:hover{
+  color: #D54FD1;
+  background-color: #e3e1e1;
+}
+
+.login .instagram {
+  position: absolute;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  top: 609px;
+  left: 1238px;
+  color: white;
+  background-color: #D54FD1;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.login .youtube:hover{
+  color: #B3090C;
+  background-color: #e3e1e1;
+}
+
+.login .youtube {
+  position: absolute;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  top: 609px;
+  left: 1279px;
+  color: white;
+  background-color: #B3090C;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}

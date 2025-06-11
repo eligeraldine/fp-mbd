@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyITS - Create New Project</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="mp.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="kotak">
+                <div class="logo">
+                    <a href="dashboar.html"><img src="img/myitscolab.png" alt=""></a>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="dashboard.html" class="menu-item" data-tooltip="Dashboard">
+                        <span class="icon"><i class="bi bi-house-door-fill"></i></span>
+                        <span class="menu-text">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="cp.html" class="menu-item" data-tooltip="Create project">
+                        <span class="icon"><i class="bi bi-file-earmark-check-fill "></i></span>
+                        <span class="menu-text">Create Project</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mp.html" class="menu-item" data-tooltip="My project">
+                        <span class="icon"><i class="bi bi-people-fill icon-blue"></i></span>
+                        <span class="menu-text">My Project</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main" id="mainContent">
+            <div class="content">
+                <h2>Project List</h2>
+
+                <input type="text" class="search" placeholder="Search">
+
+                <!-- Project Cards -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Sistem Manajemen Lalu Lintas Cerdas Berbasis IoT dan AI</h3>
+                        <span class="status ongoing">On-going</span>
+                    </div>
+                    <p>Membangun sistem pengaturan lalu lintas otomatis menggunakan kamera dan sensor IoT untuk mendeteksi kemacetan dan mengatur lampu lalu lintas secara dinamis menggunakan machine learning.</p>
+                    <p><strong>Bidang:</strong> IoT (Internet of Things), Kecerdasan Buatan (AI), Rekayasa Perangkat Keras</p>
+                    <button class="details">Details</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Robot Pengantar Barang Otomatis untuk Lingkungan Kampus</h3>
+                        <span class="status pending">Pending</span>
+                    </div>
+                    <p>Mengembangkan robot otonom yang dapat bergerak di dalam gedung untuk mengantar barang seperti dokumen atau alat laboratorium, dengan navigasi menggunakan sensor dan algoritma SLAM.</p>
+                    <p><strong>Bidang:</strong> Robotika, Sistem Tertanam (Embedded Systems), Mekatronika</p>
+                    <button class="details">Details</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Sistem Pemantauan Kualitas Air Berkelanjutan Berbasis IoT</h3>
+                        <span class="status done">Done</span>
+                    </div>
+                    <p>Merancang alat portabel dan hemat energi yang memantau kualitas air (pH, suhu, kekeruhan, DO) secara real-time dan mengirimkan data ke cloud untuk pemantauan lingkungan.</p>
+                    <p><strong>Bidang:</strong> Teknik Lingkungan, IoT, Sistem Sensor</p>
+                    <button class="details">Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const mainContent = document.getElementById('mainContent');
+        let sidebarOpen = window.innerWidth > 768;
+
+        function toggleSidebar() {
+            sidebarOpen = !sidebarOpen;
+
+            if (window.innerWidth <= 768) {
+                if (sidebarOpen) {
+                    sidebar.classList.add('active');
+                    sidebarOverlay.classList.add('active');
+                    hamburger.classList.add('active');
+                } else {
+                    sidebar.classList.remove('active');
+                    sidebarOverlay.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            } else {
+                if (sidebarOpen) {
+                    sidebar.classList.remove('collapsed');
+                    mainContent.style.marginLeft = '250px';
+                    hamburger.classList.remove('active');
+                } else {
+                    sidebar.classList.add('collapsed');
+                    mainContent.style.marginLeft = '70px';
+                    hamburger.classList.add('active');
+                }
+            }
+        }
+
+        function initializeSidebar() {
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('active', 'collapsed');
+                sidebarOverlay.classList.remove('active');
+                hamburger.classList.remove('active');
+                mainContent.style.marginLeft = '0';
+                sidebarOpen = false;
+            } else {
+                sidebar.classList.remove('hidden', 'active');
+                sidebarOverlay.classList.remove('active');
+                hamburger.classList.remove('active');
+                mainContent.style.marginLeft = '250px';
+                sidebarOpen = true;
+            }
+        }
+
+        hamburger.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+        window.addEventListener('resize', initializeSidebar);
+        window.addEventListener('load', initializeSidebar);
+    </script>
+</body>
+</html>
